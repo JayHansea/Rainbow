@@ -1,25 +1,22 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
+import CurrentWeather from "./src/screens/CurrentWeather";
+// import UpcomingWeather from "./src/screens/UpcomingWeather";
+// import City from "./src/screens/City";
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.container}>
-        <Text>App</Text>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      {/* <UpcomingWeather /> */}
+      <CurrentWeather />
+      {/* <City /> */}
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    marginTop: 22,
-  },
   container: {
-    backgroundColor: 'pink',
     flex: 1,
-    alignItems: 'center',
   },
 })
 
