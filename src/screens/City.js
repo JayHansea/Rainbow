@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 	},
 	imageLayout: {
 		flex: 1,
-		marginTop: StatusBar.currentHeight || 0,
+		// marginTop: StatusBar.currentHeight || 0,
 	},
 	cityName: {
 		fontSize: 40,
