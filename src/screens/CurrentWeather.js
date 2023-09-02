@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, StyleSheet, ImageBackground, StatusBar } from
 import { Feather } from '@expo/vector-icons';
 import RowText from "../components/RowText";
 import { WeatherType } from "../utilities/WeatherType";
+import Logo from "../components/Logo";
 
 
 const CurrentWeather = ({ weatherData }) => {
@@ -23,6 +24,7 @@ const CurrentWeather = ({ weatherData }) => {
 				style={styles.image}
       >
         <View style={{flex: 1, backgroundColor: 'rgba(0,0,0,0.5)'}}>
+          <Logo />
           <View style={styles.container}>
             <Feather name={WeatherType[weatherCondition]?.icon} size={100} color="white" />
             <Text style={styles.temp}>{temp}<Text>&deg;C</Text></Text>
@@ -36,12 +38,12 @@ const CurrentWeather = ({ weatherData }) => {
             />
           </View>
           <RowText 
-              messageOne={weather[0]?.description}
-              messageTwo={WeatherType[weatherCondition]?.message}
-              containerStyles={styles.bodyWrapper}
-              messageOneStyles={styles.description}
-              messageTwoStyles={styles.message}
-            />
+            messageOne={weather[0]?.description}
+            messageTwo={WeatherType[weatherCondition]?.message}
+            containerStyles={styles.bodyWrapper}
+            messageOneStyles={styles.description}
+            messageTwoStyles={styles.message}
+          />
         </View>
       </ImageBackground>
     </SafeAreaView>
