@@ -8,44 +8,77 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = () => {
+const Tabs = ({ weather }) => {
   return (
     <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor: 'royalblue',
-        tabBarInactiveTintColor: '#000',
-      }}
+      // screenOptions={{
+      //   tabBarActiveTintColor: 'royalblue',
+      //   tabBarInactiveTintColor: '#000',
+      // }}
     >
       <Tab.Screen 
         name="Current Weather" 
-        component={CurrentWeather}
         options={{
           tabBarIcon: ({ focused }) => <MaterialCommunityIcons 
             name={focused ? 'cloud-check' : 'cloud-check-outline'} 
             size={25} 
-            color={focused ? 'tomato' : '#000'}/>
+            color={focused ? '#fff' : '#fff'}/>,
+          tabBarActiveTintColor: '#fff',
+          tabBarInactiveTintColor: '#fff',
+          tabBarStyle: {
+            backgroundColor: '#000'
+          },
+          headerStyle: {
+            backgroundColor: '#000',
+          },
+          headerTintColor: '#fff',
+          headerTitleAlign: 'center'
         }}
-      />
+      >
+        {() => <CurrentWeather weatherData={weather.list[0]} />}
+      </Tab.Screen>
       <Tab.Screen 
         name="Upcoming Weather" 
-        component={UpcomingWeather}
         options={{
           tabBarIcon: ({ focused }) => <MaterialCommunityIcons 
             name={focused ? 'timer' : 'timer-outline'} 
             size={25} 
-            color={focused ? '#87cefa' : '#000'}/>
+            color={focused ? '#fff' : '#fff'}/>,
+          tabBarActiveTintColor: '#fff',
+          tabBarInactiveTintColor: '#fff',
+          tabBarStyle: {
+            backgroundColor: '#000'
+          },
+          headerStyle: {
+            backgroundColor: '#000'
+          },
+          headerTintColor: '#fff',
+          headerTitleAlign: 'center'
         }}
-      />
+      >
+        {() => <UpcomingWeather weatherData={weather.list} />}
+      </Tab.Screen>
       <Tab.Screen 
         name="City" 
-        component={City}
         options={{
           tabBarIcon: ({ focused }) => <MaterialCommunityIcons 
             name={focused ? 'city-variant' : 'city-variant-outline'} 
             size={25} 
-            color={focused ? '#0f52ba' : '#000'}/>
+            color={focused ? '#fff' : '#fff'}/>,
+          tabBarActiveTintColor: '#fff',
+          tabBarInactiveTintColor: '#fff',
+          tabBarStyle: {
+            backgroundColor: '#000'
+          },
+          headerStyle: {
+            backgroundColor: '#000'
+          },
+          headerTintColor: '#fff',
+          headerTitleAlign: 'center'
         }}
-      />
+      >
+        {() => <City weatherData={weather.city} />}
+      </Tab.Screen>
     </Tab.Navigator>
   )
 }
